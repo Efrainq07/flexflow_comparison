@@ -8,7 +8,7 @@ import argparse
 import torch.multiprocessing as mp
 import torchvision.transforms as transforms
 import torchvision.models as models
-import torch.autograd.profiler as profiler
+import torchprof
 import time
 import pandas as pd
 
@@ -45,42 +45,43 @@ def train(gpu, args):
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
     training_run_data = pd.DataFrame(columns=['epoch','batch','batch_size','gpu_number','time'])
     mem_stats = pd.DataFrame(columns=list(torch.cuda.memory_stats().keys()))
+    prof_file = open("mem_profiling.txt", "w")
     for epoch in range(args.epochs):  # loop over the dataset multiple times
         running_loss = 0.0
         print("Epoch %d"%epoch)
         sampler.set_epoch(epoch)
         for i, data in enumerate(trainloader, 0):
-            with profiler.profile(profile_memory=True,use_cuda=True) as prof:
-                start = time.time()
-                inputs, labels = data
-                inputs = inputs.cuda()
-                labels = labels.cuda()
+            start = time.time()
+            inputs, labels = data
+            inputs = inputs.cuda()
+            labels = labels.cuda()
 
-                optimizer.zero_grad()
+            optimizer.zero_grad()
+            with torchprof.Profile(model, use_cuda=True, profile_memory=True)  as prof:
                 outputs = model(inputs)
-                loss = criterion(outputs, labels)
-                loss.backward()
-                optimizer.step()
-                end = time.time()
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+            end = time.time()
 
             # print statistics
             if rank==0:
                 training_run_data=training_run_data.append(
                         {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':1000*(end - start)/(batch_size*args.gpus*args.nodes),'throughput':(batch_size*args.gpus*args.nodes)/(end - start)},
                     ignore_index=True)
-                training_run_data.to_csv("resnet18_training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
+                training_run_data.to_csv("results/resnet18_training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
                 print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f ms Throughput:%.2f"%
                 (epoch,i,loss.item(),1000*(end - start)/(batch_size*args.gpus),(batch_size*args.gpus)/(end - start)))
 
                 running_loss += loss.item()
-                if i % 100 == 99:    # print every 2000 mini-batches
+                if i % 50 == 49:    # print every 2000 mini-batches
                     print('[%d, %5d] loss: %.3f' %
                         (epoch + 1, i + 1, running_loss / 2000))
                     running_loss = 0.0
                     print("GPU processes",torch.cuda.list_gpu_processes())
-                    print(type(prof.key_averages(group_by_input_shape=True)))
+                    prof_file.write(prof.display(show_events=False))
                     mem_stats = mem_stats.append(torch.cuda.memory_stats(),ignore_index=True)
-                    mem_stats.to_csv("resnet18_mem_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
+                    mem_stats.to_csv("results/resnet18_mem_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
 
     cleanup()
 
