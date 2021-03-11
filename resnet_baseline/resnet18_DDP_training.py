@@ -38,7 +38,11 @@ def train(gpu, args):
     model = models.resnet18()
     torch.cuda.set_device(gpu)
     model.cuda()
-
+    print("GPU initialization")
+    dummy_input = torch.randn(1, 3,224,224, dtype=torch.float).to(gpu)
+    for _ in range(10):
+        _ = model(dummy_input)
+    starter, ender = torch.cuda.Event(enable_timing=True),torch.cuda.Event(enable_timing=True)
     model = nn.parallel.DistributedDataParallel(model,device_ids=[gpu])
 
     criterion = nn.CrossEntropyLoss().cuda()
@@ -51,8 +55,8 @@ def train(gpu, args):
         print("Epoch %d"%epoch)
         sampler.set_epoch(epoch)
         for i, data in enumerate(trainloader, 0):
-            start = time.time()
             inputs, labels = data
+            starter.record()
             inputs = inputs.cuda()
             labels = labels.cuda()
 
@@ -62,16 +66,17 @@ def train(gpu, args):
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-            end = time.time()
-
+            ender.record()
             # print statistics
             if rank==0:
+                torch.cuda.synchronize()
+                timer = starter.elapsed_time(ender)
                 training_run_data=training_run_data.append(
-                        {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':1000*(end - start)/(batch_size*args.gpus*args.nodes),'throughput':(batch_size*args.gpus*args.nodes)/(end - start)},
+                        {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time':timer/(batch_size*args.gpus*args.nodes),'throughput':1000*(batch_size*args.gpus*args.nodes)/timer},
                     ignore_index=True)
                 training_run_data.to_csv("results/resnet18_training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
                 print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f ms Throughput:%.2f"%
-                (epoch,i,loss.item(),1000*(end - start)/(batch_size*args.gpus),(batch_size*args.gpus)/(end - start)))
+                (epoch,i,loss.item(),timer/(batch_size*args.gpus),1000*(batch_size*args.gpus)/timer))
 
                 running_loss += loss.item()
                 if i % 50 == 49:    # print every 2000 mini-batches

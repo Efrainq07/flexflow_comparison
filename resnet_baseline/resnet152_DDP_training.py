@@ -21,8 +21,8 @@ def setup(rank, world_size):
 def cleanup():
     dist.destroy_process_group()
 
-def train(gpu, args):
-    rank = args.nr * args.gpus + gpu	
+def train(local_rank, args):
+    rank = args.nr * args.gpus + local_rank	
     setup(rank, args.world_size)
     transform = transforms.Compose([
                 torchvision.transforms.Resize(224),
@@ -36,10 +36,13 @@ def train(gpu, args):
     trainloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, num_workers=2,sampler=sampler)
 
     model = models.resnet152()
-    torch.cuda.set_device(gpu)
+    torch.cuda.set_device(local_rank)
     model.cuda()
-
-    model = nn.parallel.DistributedDataParallel(model,device_ids=[gpu])
+    print("GPU initialization")
+    dummy_input = torch.randn(1, 3,224,224, dtype=torch.float).to(local_rank)
+    for _ in range(10):
+        _ = model(dummy_input)
+    model = nn.parallel.DistributedDataParallel(model,device_ids=[local_rank])
 
     criterion = nn.CrossEntropyLoss().cuda()
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
@@ -49,7 +52,8 @@ def train(gpu, args):
         print("Epoch %d"%epoch)
         sampler.set_epoch(epoch)
         for i, data in enumerate(trainloader, 0):
-            start = time.time()
+            starter, ender = torch.cuda.Event(enable_timing=True),torch.cuda.Event(enable_timing=True)
+            starter.record()
             inputs, labels = data
             inputs = inputs.cuda()
             labels = labels.cuda()
@@ -59,16 +63,17 @@ def train(gpu, args):
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-            end = time.time()
-
+            ender.record()
             # print statistics
             if rank==0:
+                torch.cuda.synchronize()
+                timer = starter.elapsed_time(ender)
                 training_run_data=training_run_data.append(
-                        {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':1000*(end - start)/(batch_size*args.gpus),'throughput':(batch_size*args.gpus)/(end - start)},
+                        {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':timer/(batch_size*args.gpus),'throughput':1000*(batch_size*args.gpus)/timer},
                     ignore_index=True)
-                training_run_data.to_csv("training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
+                training_run_data.to_csv("results/training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
                 print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f msi Throughput:%.2f"%
-                (epoch,i,loss.item(),1000*(end - start)/(batch_size*args.gpus),(batch_size*args.gpus)/(end - start)))
+                (epoch,i,loss.item(),timer/(batch_size*args.gpus),1000*(batch_size*args.gpus)/timer))
 
                 running_loss += loss.item()
                 if i % 2000 == 1999:    # print every 2000 mini-batches
