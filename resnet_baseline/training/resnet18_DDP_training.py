@@ -8,7 +8,7 @@ import argparse
 import torch.multiprocessing as mp
 import torchvision.transforms as transforms
 import torchvision.models as models
-
+import torchprof
 import time
 import pandas as pd
 
@@ -35,7 +35,7 @@ def train(local_rank, args):
     sampler = torch.utils.data.distributed.DistributedSampler(train_dataset,num_replicas=args.world_size,rank=rank)
     trainloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, num_workers=2,sampler=sampler)
 
-    model = models.resnet152()
+    model = models.resnet18()
     torch.cuda.set_device(local_rank)
     model.cuda()
     print("GPU initialization")
@@ -47,6 +47,7 @@ def train(local_rank, args):
     criterion = nn.CrossEntropyLoss().cuda()
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
     training_run_data = pd.DataFrame(columns=['epoch','batch','batch_size','gpu_number','time'])
+    prof_file = open("results/resnet18_mem_profiling.txt", "w")
     for epoch in range(args.epochs):  # loop over the dataset multiple times
         running_loss = 0.0
         print("Epoch %d"%epoch)
@@ -59,9 +60,12 @@ def train(local_rank, args):
             labels = labels.cuda()
 
             optimizer.zero_grad()
-            outputs = model(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
+            with torchprof.Profile(model, use_cuda=True, profile_memory=True) as prof:
+                outputs = model(inputs)
+                loss = criterion(outputs, labels)
+            with torch.autograd.profiler.profile(use_cuda=True,profile_memory=True) as backprof:
+                loss.backward()
+                grads_conv1 = model.module.conv1.weight.grad
             optimizer.step()
             ender.record()
             # print statistics
@@ -74,7 +78,9 @@ def train(local_rank, args):
                 training_run_data.to_csv("results/training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
                 print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f msi Throughput:%.2f"%
                 (epoch,i,loss.item(),timer/(batch_size*args.gpus),1000*(batch_size*args.gpus)/timer))
-
+                if i%20==19:
+                    prof_file.write(prof.display(show_events=False))
+                    prof_file.write(backprof.table())
                 running_loss += loss.item()
                 if i % 2000 == 1999:    # print every 2000 mini-batches
                     print('[%d, %5d] loss: %.3f' %
@@ -94,6 +100,9 @@ def main():
                         help='number of epochs')
     parser.add_argument('-b','--batchsize', default=12, type=int) 
     args = parser.parse_args()
+    if not 'MASTER_ADDR' in os.environ:
+        os.environ['MASTER_ADDR'] = 'localhost'
+        os.environ['MASTER_PORT'] = '1234'
     if 'SLURMD_NODENAME' in os.environ:
         if os.environ['SLURMD_NODENAME']==os.environ['MASTER_ADDR']:     
             args.nr=0

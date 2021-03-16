@@ -8,7 +8,7 @@ import argparse
 import torch.multiprocessing as mp
 import torchvision.transforms as transforms
 import torchvision.models as models
-import torchprof
+
 import time
 import pandas as pd
 
@@ -21,8 +21,8 @@ def setup(rank, world_size):
 def cleanup():
     dist.destroy_process_group()
 
-def train(gpu, args):
-    rank = args.nr * args.gpus + gpu	
+def train(local_rank, args):
+    rank = args.nr * args.gpus + local_rank	
     setup(rank, args.world_size)
     transform = transforms.Compose([
                 torchvision.transforms.Resize(224),
@@ -35,28 +35,27 @@ def train(gpu, args):
     sampler = torch.utils.data.distributed.DistributedSampler(train_dataset,num_replicas=args.world_size,rank=rank)
     trainloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, num_workers=2,sampler=sampler)
 
-    model = models.resnet18()
-    torch.cuda.set_device(gpu)
+    model = models.resnet152()
+    torch.cuda.set_device(local_rank)
     model.cuda()
     print("GPU initialization")
-    dummy_input = torch.randn(1, 3,224,224, dtype=torch.float).to(gpu)
+    dummy_input = torch.randn(1, 3,224,224, dtype=torch.float).to(local_rank)
     for _ in range(10):
         _ = model(dummy_input)
-    starter, ender = torch.cuda.Event(enable_timing=True),torch.cuda.Event(enable_timing=True)
-    model = nn.parallel.DistributedDataParallel(model,device_ids=[gpu])
+    model = nn.parallel.DistributedDataParallel(model,device_ids=[local_rank])
 
     criterion = nn.CrossEntropyLoss().cuda()
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
     training_run_data = pd.DataFrame(columns=['epoch','batch','batch_size','gpu_number','time'])
-    mem_stats = pd.DataFrame(columns=list(torch.cuda.memory_stats().keys()))
-    prof_file = open("mem_profiling.txt", "w")
+    prof_file = open("resnet152_nem_profiling.txt", "w")
     for epoch in range(args.epochs):  # loop over the dataset multiple times
         running_loss = 0.0
         print("Epoch %d"%epoch)
         sampler.set_epoch(epoch)
         for i, data in enumerate(trainloader, 0):
-            inputs, labels = data
+            starter, ender = torch.cuda.Event(enable_timing=True),torch.cuda.Event(enable_timing=True)
             starter.record()
+            inputs, labels = data
             inputs = inputs.cuda()
             labels = labels.cuda()
 
@@ -72,22 +71,18 @@ def train(gpu, args):
                 torch.cuda.synchronize()
                 timer = starter.elapsed_time(ender)
                 training_run_data=training_run_data.append(
-                        {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time':timer/(batch_size*args.gpus*args.nodes),'throughput':1000*(batch_size*args.gpus*args.nodes)/timer},
+                        {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':timer/(batch_size*args.gpus),'throughput':1000*(batch_size*args.gpus)/timer},
                     ignore_index=True)
-                training_run_data.to_csv("results/resnet18_training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
-                print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f ms Throughput:%.2f"%
+                training_run_data.to_csv("results/training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
+                print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f msi Throughput:%.2f"%
                 (epoch,i,loss.item(),timer/(batch_size*args.gpus),1000*(batch_size*args.gpus)/timer))
-
+                if i%20==19:
+                    prof_file.write(prof.display(show_events=False))
                 running_loss += loss.item()
-                if i % 50 == 49:    # print every 2000 mini-batches
+                if i % 2000 == 1999:    # print every 2000 mini-batches
                     print('[%d, %5d] loss: %.3f' %
                         (epoch + 1, i + 1, running_loss / 2000))
                     running_loss = 0.0
-                    print("GPU processes",torch.cuda.list_gpu_processes())
-                    prof_file.write(prof.display(show_events=False))
-                    mem_stats = mem_stats.append(torch.cuda.memory_stats(),ignore_index=True)
-                    mem_stats.to_csv("results/resnet18_mem_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
-
     cleanup()
 
 def main():
