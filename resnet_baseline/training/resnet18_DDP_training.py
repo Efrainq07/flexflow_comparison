@@ -31,7 +31,7 @@ def train(local_rank, args):
                 transforms.Normalize(mean=[0.485, 0.456, 0.406],std=[0.229, 0.224, 0.225])
             ])
     batch_size = args.batchsize
-    train_dataset = torchvision.datasets.CIFAR10('./datasets/',transform=transform,download=True)
+    train_dataset = torchvision.datasets.CIFAR10('../datasets/',transform=transform,download=True)
     sampler = torch.utils.data.distributed.DistributedSampler(train_dataset,num_replicas=args.world_size,rank=rank)
     trainloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, num_workers=2,sampler=sampler)
 
@@ -47,7 +47,7 @@ def train(local_rank, args):
     criterion = nn.CrossEntropyLoss().cuda()
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
     training_run_data = pd.DataFrame(columns=['epoch','batch','batch_size','gpu_number','time'])
-    prof_file = open("results/resnet18_mem_profiling.txt", "w")
+    prof_file = open("../results/resnet18_mem_profiling.txt", "w")
     for epoch in range(args.epochs):  # loop over the dataset multiple times
         running_loss = 0.0
         print("Epoch %d"%epoch)
@@ -63,9 +63,9 @@ def train(local_rank, args):
             with torchprof.Profile(model, use_cuda=True, profile_memory=True) as prof:
                 outputs = model(inputs)
                 loss = criterion(outputs, labels)
-            with torch.autograd.profiler.profile(use_cuda=True,profile_memory=True) as backprof:
+            with torch.autograd.profiler.profile(use_kineto=True,use_cuda=True,profile_memory=True) as backprof:
                 loss.backward()
-                grads_conv1 = model.module.conv1.weight.grad
+            grads_conv1 = model.module.conv1.weight.grad
             optimizer.step()
             ender.record()
             # print statistics
@@ -75,12 +75,12 @@ def train(local_rank, args):
                 training_run_data=training_run_data.append(
                         {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':timer/(batch_size*args.gpus),'throughput':1000*(batch_size*args.gpus)/timer},
                     ignore_index=True)
-                training_run_data.to_csv("results/training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
+                training_run_data.to_csv("../results/resnet18_training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
                 print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f msi Throughput:%.2f"%
                 (epoch,i,loss.item(),timer/(batch_size*args.gpus),1000*(batch_size*args.gpus)/timer))
                 if i%20==19:
                     prof_file.write(prof.display(show_events=False))
-                    prof_file.write(backprof.table())
+                    prof_file.write(backprof.table(row_limit=100000))
                 running_loss += loss.item()
                 if i % 2000 == 1999:    # print every 2000 mini-batches
                     print('[%d, %5d] loss: %.3f' %

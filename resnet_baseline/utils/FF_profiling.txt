@@ -1,0 +1,204 @@
+[0 - 7f730665ea80]   19.270791 {3}{Mapper}: Instance[0]: memory:1e00000000000001	proc:1d0000000000000a	size:37632	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270830 {3}{Mapper}: Instance[1]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270835 {3}{Mapper}: Instance[2]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270840 {3}{Mapper}: Instance[3]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270845 {3}{Mapper}: Instance[4]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270850 {3}{Mapper}: Instance[5]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270854 {3}{Mapper}: Instance[6]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270861 {3}{Mapper}: Instance[7]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270866 {3}{Mapper}: Instance[8]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270872 {3}{Mapper}: Instance[9]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270878 {3}{Mapper}: Instance[10]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270886 {3}{Mapper}: Instance[11]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270892 {3}{Mapper}: Instance[12]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270899 {3}{Mapper}: Instance[13]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270905 {3}{Mapper}: Instance[14]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Constant Init Task
+[0 - 7f730665ea80]   19.270911 {3}{Mapper}: Instance[15]: memory:1e00000000000001	proc:1d0000000000000a	size:294912	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270917 {3}{Mapper}: Instance[16]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270922 {3}{Mapper}: Instance[17]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270928 {3}{Mapper}: Instance[18]: memory:1e00000000000001	proc:1d0000000000000a	size:589824	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270937 {3}{Mapper}: Instance[19]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270943 {3}{Mapper}: Instance[20]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270949 {3}{Mapper}: Instance[21]: memory:1e00000000000001	proc:1d0000000000000a	size:32768	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270955 {3}{Mapper}: Instance[22]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270962 {3}{Mapper}: Instance[23]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270968 {3}{Mapper}: Instance[24]: memory:1e00000000000001	proc:1d0000000000000a	size:589824	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270974 {3}{Mapper}: Instance[25]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270980 {3}{Mapper}: Instance[26]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.270989 {3}{Mapper}: Instance[27]: memory:1e00000000000001	proc:1d0000000000000a	size:589824	task:Glorot Init Task
+[0 - 7f730665ea80]   19.270994 {3}{Mapper}: Instance[28]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.271000 {3}{Mapper}: Instance[29]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Constant Init Task
+[0 - 7f730665ea80]   19.271006 {3}{Mapper}: Instance[30]: memory:1e00000000000001	proc:1d0000000000000a	size:1179648	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271016 {3}{Mapper}: Instance[31]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271021 {3}{Mapper}: Instance[32]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271027 {3}{Mapper}: Instance[33]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271033 {3}{Mapper}: Instance[34]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271038 {3}{Mapper}: Instance[35]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271044 {3}{Mapper}: Instance[36]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271055 {3}{Mapper}: Instance[37]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271061 {3}{Mapper}: Instance[38]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271066 {3}{Mapper}: Instance[39]: memory:1e00000000000001	proc:1d0000000000000a	size:2359296	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271072 {3}{Mapper}: Instance[40]: memory:1e00000000000001	proc:1d0000000000000a	size:131072	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271080 {3}{Mapper}: Instance[41]: memory:1e00000000000001	proc:1d0000000000000a	size:2359296	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271086 {3}{Mapper}: Instance[42]: memory:1e00000000000001	proc:1d0000000000000a	size:2359296	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271092 {3}{Mapper}: Instance[43]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271097 {3}{Mapper}: Instance[44]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Constant Init Task
+[0 - 7f730665ea80]   19.271103 {3}{Mapper}: Instance[45]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271109 {3}{Mapper}: Instance[46]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271115 {3}{Mapper}: Instance[47]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271120 {3}{Mapper}: Instance[48]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271126 {3}{Mapper}: Instance[49]: memory:1e00000000000001	proc:1d0000000000000a	size:4718592	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271131 {3}{Mapper}: Instance[50]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271137 {3}{Mapper}: Instance[51]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271143 {3}{Mapper}: Instance[52]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271149 {3}{Mapper}: Instance[53]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271154 {3}{Mapper}: Instance[54]: memory:1e00000000000001	proc:1d0000000000000a	size:9437184	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271160 {3}{Mapper}: Instance[55]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271166 {3}{Mapper}: Instance[56]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Constant Init Task
+[0 - 7f730665ea80]   19.271171 {3}{Mapper}: Instance[57]: memory:1e00000000000001	proc:1d0000000000000a	size:9437184	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271177 {3}{Mapper}: Instance[58]: memory:1e00000000000001	proc:1d0000000000000a	size:9437184	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271183 {3}{Mapper}: Instance[59]: memory:1e00000000000001	proc:1d0000000000000a	size:524288	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271188 {3}{Mapper}: Instance[60]: memory:1e00000000000001	proc:1d0000000000000a	size:4000	task:Zero Init Task
+[0 - 7f730665ea80]   19.271194 {3}{Mapper}: Instance[61]: memory:1e00000000000001	proc:1d0000000000000a	size:2048000	task:Glorot Init Task
+[0 - 7f730665ea80]   19.271202 {3}{Mapper}: Instance[62]: memory:1e00000000000001	proc:1d0000000000000a	size:210739200	task:Float Load Input Task
+[0 - 7f730665ea80]   19.271207 {3}{Mapper}: Instance[63]: memory:1e00000000000001	proc:1d0000000000000a	size:1400	task:Int32 Load Input Task
+[0 - 7f730665ea80]   19.271213 {3}{Mapper}: Instance[64]: memory:1e00000000000001	proc:1d0000000000000a	size:1123942400	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271219 {3}{Mapper}: Instance[65]: memory:1e00000000000001	proc:1d0000000000000a	size:37632	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271226 {3}{Mapper}: Instance[66]: memory:1e00000000000001	proc:1d0000000000000a	size:1123942400	task:bn_init_task
+[0 - 7f730665ea80]   19.271234 {3}{Mapper}: Instance[67]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:pool2d_init_task
+[0 - 7f730665ea80]   19.271240 {3}{Mapper}: Instance[68]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271245 {3}{Mapper}: Instance[69]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271251 {3}{Mapper}: Instance[70]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:bn_init_task
+[0 - 7f730665ea80]   19.271257 {3}{Mapper}: Instance[71]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271262 {3}{Mapper}: Instance[72]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271268 {3}{Mapper}: Instance[73]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:bn_init_task
+[0 - 7f730665ea80]   19.271274 {3}{Mapper}: Instance[74]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271279 {3}{Mapper}: Instance[75]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271285 {3}{Mapper}: Instance[76]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:bn_init_task
+[0 - 7f730665ea80]   19.271292 {3}{Mapper}: Instance[77]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271298 {3}{Mapper}: Instance[78]: memory:1e00000000000001	proc:1d0000000000000a	size:147456	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271304 {3}{Mapper}: Instance[79]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:bn_init_task
+[0 - 7f730665ea80]   19.271310 {3}{Mapper}: Instance[80]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271315 {3}{Mapper}: Instance[81]: memory:1e00000000000001	proc:1d0000000000000a	size:294912	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271321 {3}{Mapper}: Instance[82]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:bn_init_task
+[0 - 7f730665ea80]   19.271327 {3}{Mapper}: Instance[83]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271333 {3}{Mapper}: Instance[84]: memory:1e00000000000001	proc:1d0000000000000a	size:589824	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271338 {3}{Mapper}: Instance[85]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:bn_init_task
+[0 - 7f730665ea80]   19.271345 {3}{Mapper}: Instance[86]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271351 {3}{Mapper}: Instance[87]: memory:1e00000000000001	proc:1d0000000000000a	size:32768	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271359 {3}{Mapper}: Instance[88]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:bn_init_task
+[0 - 7f730665ea80]   19.271365 {3}{Mapper}: Instance[89]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271371 {3}{Mapper}: Instance[90]: memory:1e00000000000001	proc:1d0000000000000a	size:589824	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271376 {3}{Mapper}: Instance[91]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:bn_init_task
+[0 - 7f730665ea80]   19.271382 {3}{Mapper}: Instance[92]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271388 {3}{Mapper}: Instance[93]: memory:1e00000000000001	proc:1d0000000000000a	size:589824	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271393 {3}{Mapper}: Instance[94]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:bn_init_task
+[0 - 7f730665ea80]   19.271399 {3}{Mapper}: Instance[95]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271405 {3}{Mapper}: Instance[96]: memory:1e00000000000001	proc:1d0000000000000a	size:1179648	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271410 {3}{Mapper}: Instance[97]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:bn_init_task
+[0 - 7f730665ea80]   19.271417 {3}{Mapper}: Instance[98]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271422 {3}{Mapper}: Instance[99]: memory:1e00000000000001	proc:1d0000000000000a	size:2359296	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271428 {3}{Mapper}: Instance[100]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:bn_init_task
+[0 - 7f730665ea80]   19.271434 {3}{Mapper}: Instance[101]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271440 {3}{Mapper}: Instance[102]: memory:1e00000000000001	proc:1d0000000000000a	size:131072	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271445 {3}{Mapper}: Instance[103]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:bn_init_task
+[0 - 7f730665ea80]   19.271451 {3}{Mapper}: Instance[104]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271457 {3}{Mapper}: Instance[105]: memory:1e00000000000001	proc:1d0000000000000a	size:2359296	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271462 {3}{Mapper}: Instance[106]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:bn_init_task
+[0 - 7f730665ea80]   19.271468 {3}{Mapper}: Instance[107]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271474 {3}{Mapper}: Instance[108]: memory:1e00000000000001	proc:1d0000000000000a	size:2359296	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271480 {3}{Mapper}: Instance[109]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:bn_init_task
+[0 - 7f730665ea80]   19.271486 {3}{Mapper}: Instance[110]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271492 {3}{Mapper}: Instance[111]: memory:1e00000000000001	proc:1d0000000000000a	size:4718592	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271498 {3}{Mapper}: Instance[112]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:bn_init_task
+[0 - 7f730665ea80]   19.271503 {3}{Mapper}: Instance[113]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271509 {3}{Mapper}: Instance[114]: memory:1e00000000000001	proc:1d0000000000000a	size:9437184	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271515 {3}{Mapper}: Instance[115]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:bn_init_task
+[0 - 7f730665ea80]   19.271520 {3}{Mapper}: Instance[116]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271526 {3}{Mapper}: Instance[117]: memory:1e00000000000001	proc:1d0000000000000a	size:524288	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271532 {3}{Mapper}: Instance[118]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:bn_init_task
+[0 - 7f730665ea80]   19.271538 {3}{Mapper}: Instance[119]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271543 {3}{Mapper}: Instance[120]: memory:1e00000000000001	proc:1d0000000000000a	size:9437184	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271549 {3}{Mapper}: Instance[121]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:bn_init_task
+[0 - 7f730665ea80]   19.271555 {3}{Mapper}: Instance[122]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271560 {3}{Mapper}: Instance[123]: memory:1e00000000000001	proc:1d0000000000000a	size:9437184	task:Conv2D Init Task
+[0 - 7f730665ea80]   19.271566 {3}{Mapper}: Instance[124]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:bn_init_task
+[0 - 7f730665ea80]   19.271572 {3}{Mapper}: Instance[125]: memory:1e00000000000001	proc:1d0000000000000a	size:716800	task:pool2d_init_task
+[0 - 7f730665ea80]   19.271577 {3}{Mapper}: Instance[126]: memory:1e00000000000001	proc:1d0000000000000a	size:716800	task:flat_init_task
+[0 - 7f730665ea80]   19.271583 {3}{Mapper}: Instance[127]: memory:1e00000000000001	proc:1d0000000000000a	size:1400000	task:Linear Init Task
+[0 - 7f730665ea80]   19.271589 {3}{Mapper}: Instance[128]: memory:1e00000000000001	proc:1d0000000000000a	size:716800	task:Linear Init Task
+[0 - 7f730665ea80]   19.271595 {3}{Mapper}: Instance[129]: memory:1e00000000000001	proc:1d0000000000000a	size:1400000	task:softmax_init_task
+[0 - 7f730665ea80]   19.271600 {3}{Mapper}: Instance[130]: memory:1e00000000000001	proc:1d0000000000000a	size:1400000	task:Zero Init Task
+[0 - 7f730665ea80]   19.271606 {3}{Mapper}: Instance[131]: memory:1e00000000000001	proc:1d0000000000000a	size:2048000	task:Zero Init Task
+[0 - 7f730665ea80]   19.271612 {3}{Mapper}: Instance[132]: memory:1e00000000000001	proc:1d0000000000000a	size:4000	task:Zero Init Task
+[0 - 7f730665ea80]   19.271617 {3}{Mapper}: Instance[133]: memory:1e00000000000001	proc:1d0000000000000a	size:1400000	task:Zero Init Task
+[0 - 7f730665ea80]   19.271623 {3}{Mapper}: Instance[134]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Zero Init Task
+[0 - 7f730665ea80]   19.271629 {3}{Mapper}: Instance[135]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271634 {3}{Mapper}: Instance[136]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271640 {3}{Mapper}: Instance[137]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271646 {3}{Mapper}: Instance[138]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271653 {3}{Mapper}: Instance[139]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Zero Init Task
+[0 - 7f730665ea80]   19.271658 {3}{Mapper}: Instance[140]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Zero Init Task
+[0 - 7f730665ea80]   19.271664 {3}{Mapper}: Instance[141]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Zero Init Task
+[0 - 7f730665ea80]   19.271670 {3}{Mapper}: Instance[142]: memory:1e00000000000001	proc:1d0000000000000a	size:35123200	task:Zero Init Task
+[0 - 7f730665ea80]   19.271676 {3}{Mapper}: Instance[143]: memory:1e00000000000001	proc:1d0000000000000a	size:716800	task:Zero Init Task
+[0 - 7f730665ea80]   19.271681 {3}{Mapper}: Instance[144]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271687 {3}{Mapper}: Instance[145]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271693 {3}{Mapper}: Instance[146]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271698 {3}{Mapper}: Instance[147]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271704 {3}{Mapper}: Instance[148]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271711 {3}{Mapper}: Instance[149]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271717 {3}{Mapper}: Instance[150]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271724 {3}{Mapper}: Instance[151]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271730 {3}{Mapper}: Instance[152]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271735 {3}{Mapper}: Instance[153]: memory:1e00000000000001	proc:1d0000000000000a	size:256	task:Zero Init Task
+[0 - 7f730665ea80]   19.271741 {3}{Mapper}: Instance[154]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271747 {3}{Mapper}: Instance[155]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271753 {3}{Mapper}: Instance[156]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271759 {3}{Mapper}: Instance[157]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271764 {3}{Mapper}: Instance[158]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271770 {3}{Mapper}: Instance[159]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271778 {3}{Mapper}: Instance[160]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271783 {3}{Mapper}: Instance[161]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271789 {3}{Mapper}: Instance[162]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271795 {3}{Mapper}: Instance[163]: memory:1e00000000000001	proc:1d0000000000000a	size:512	task:Zero Init Task
+[0 - 7f730665ea80]   19.271800 {3}{Mapper}: Instance[164]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271806 {3}{Mapper}: Instance[165]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271812 {3}{Mapper}: Instance[166]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271817 {3}{Mapper}: Instance[167]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271823 {3}{Mapper}: Instance[168]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271830 {3}{Mapper}: Instance[169]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271836 {3}{Mapper}: Instance[170]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271842 {3}{Mapper}: Instance[171]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271847 {3}{Mapper}: Instance[172]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271853 {3}{Mapper}: Instance[173]: memory:1e00000000000001	proc:1d0000000000000a	size:1024	task:Zero Init Task
+[0 - 7f730665ea80]   19.271859 {3}{Mapper}: Instance[174]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271865 {3}{Mapper}: Instance[175]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271870 {3}{Mapper}: Instance[176]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271876 {3}{Mapper}: Instance[177]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271883 {3}{Mapper}: Instance[178]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271890 {3}{Mapper}: Instance[179]: memory:1e00000000000001	proc:1d0000000000000a	size:2048	task:Zero Init Task
+[0 - 7f730665ea80]   19.271896 {3}{Mapper}: Instance[180]: memory:1e00000000000001	proc:1d0000000000000a	size:1123942400	task:Zero Init Task
+[0 - 7f730665ea80]   19.271902 {3}{Mapper}: Instance[181]: memory:1e00000000000001	proc:1d0000000000000a	size:1123942400	task:Zero Init Task
+[0 - 7f730665ea80]   19.271908 {3}{Mapper}: Instance[182]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271913 {3}{Mapper}: Instance[183]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271919 {3}{Mapper}: Instance[184]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271925 {3}{Mapper}: Instance[185]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271930 {3}{Mapper}: Instance[186]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271936 {3}{Mapper}: Instance[187]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271942 {3}{Mapper}: Instance[188]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271949 {3}{Mapper}: Instance[189]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271955 {3}{Mapper}: Instance[190]: memory:1e00000000000001	proc:1d0000000000000a	size:280985600	task:Zero Init Task
+[0 - 7f730665ea80]   19.271961 {3}{Mapper}: Instance[191]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.271966 {3}{Mapper}: Instance[192]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.271972 {3}{Mapper}: Instance[193]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.271978 {3}{Mapper}: Instance[194]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.271984 {3}{Mapper}: Instance[195]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.271990 {3}{Mapper}: Instance[196]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.271995 {3}{Mapper}: Instance[197]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.272003 {3}{Mapper}: Instance[198]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.272009 {3}{Mapper}: Instance[199]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.272015 {3}{Mapper}: Instance[200]: memory:1e00000000000001	proc:1d0000000000000a	size:140492800	task:Zero Init Task
+[0 - 7f730665ea80]   19.272020 {3}{Mapper}: Instance[201]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Zero Init Task
+[0 - 7f730665ea80]   19.272026 {3}{Mapper}: Instance[202]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Zero Init Task
+[0 - 7f730665ea80]   19.272032 {3}{Mapper}: Instance[203]: memory:1e00000000000001	proc:1d0000000000000a	size:70246400	task:Zero Init Task
