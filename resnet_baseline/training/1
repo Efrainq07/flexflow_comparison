@@ -13,18 +13,6 @@ import time
 import pandas as pd
 
 
-class RandomDataset(torch.utils.data.Dataset):
-  def __init__(self,*args):
-    super(RandomDataset,self).__init__()
-    self.values = torch.zeros(*args, dtype=torch.float)
-    self.labels = torch.zeros(args[0])
-
-  def __len__(self):
-    return len(self.values)  # number of samples in the dataset
-
-  def __getitem__(self, index):
-    return self.values[index], self.labels[index]
-
 def setup(rank, world_size):
     print("Running init_process_group...")
     dist.init_process_group("nccl", rank=rank, world_size=world_size)
@@ -48,7 +36,6 @@ def train(local_rank, args):
     trainloader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, num_workers=2,sampler=sampler)
 
     model = models.resnet18()
-    model.eval()
     torch.cuda.set_device(local_rank)
     model.cuda()
     print("GPU initialization")
@@ -56,28 +43,52 @@ def train(local_rank, args):
     for _ in range(10):
         _ = model(dummy_input)
     model = nn.parallel.DistributedDataParallel(model,device_ids=[local_rank])
+
+    criterion = nn.CrossEntropyLoss().cuda()
+    optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
     training_run_data = pd.DataFrame(columns=['epoch','batch','batch_size','gpu_number','time'])
     prof_file = open("../results/resnet18_mem_profiling.txt", "w")
-    for epoch in range(0,10):
+    for epoch in range(args.epochs):  # loop over the dataset multiple times
+        running_loss = 0.0
+        print("Epoch %d"%epoch)
+        sampler.set_epoch(epoch)
         for i, data in enumerate(trainloader, 0):
             starter, ender = torch.cuda.Event(enable_timing=True),torch.cuda.Event(enable_timing=True)
             starter.record()
             inputs, labels = data
             inputs = inputs.cuda()
             labels = labels.cuda()
-            with torch.no_grad():
-                with torchprof.Profile(model, use_cuda=True, profile_memory=True) as prof:
-                    outputs = model(inputs)
+
+            optimizer.zero_grad()
+            with torchprof.Profile(model, use_cuda=True, profile_memory=True) as prof:
+                outputs = model(inputs)
+                loss = criterion(outputs, labels)
+            with torch.autograd.profiler.profile(use_cuda=True,profile_memory=True) as backprof:
+                loss.backward()
+            for name, param in model.named_parameters():
+                if name.split('.')[-1] == 'weight':
+                    print(name,param.grad.size())
+            grads_conv1 = model.module.conv1.weight.grad
+            optimizer.step()
             ender.record()
+            # print statistics
             if rank==0:
                 torch.cuda.synchronize()
                 timer = starter.elapsed_time(ender)
                 training_run_data=training_run_data.append(
-                        {'batch':i,'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':timer/(batch_size*args.gpus),'throughput':1000*(batch_size*args.gpus)/timer},ignore_index=True)
-                training_run_data.to_csv(args.output,index=False)
-                print("Batch: %d  Time per Image: %.2f ms Throughput:%.2f"%(i,timer/(batch_size*args.gpus),1000*(batch_size*args.gpus)/timer))
+                        {'epoch':epoch, 'batch':i,'loss':loss.item(),'batch_size':batch_size,'gpu_number':args.gpus*args.nodes,'time (ms)':timer/(batch_size*args.gpus),'throughput':1000*(batch_size*args.gpus)/timer},
+                    ignore_index=True)
+                training_run_data.to_csv("../results/resnet18_training_stats_GPU_%.0f_batchsize_%.0f.csv"%(args.gpus*args.nodes,batch_size),index=False)
+                print("[Epoch %d] Batch: %d Loss: %.3f Time per Image: %.2f msi Throughput:%.2f"%
+                (epoch,i,loss.item(),timer/(batch_size*args.gpus),1000*(batch_size*args.gpus)/timer))
                 if i%20==19:
                     prof_file.write(prof.display(show_events=False))
+                    prof_file.write(backprof.table())
+                running_loss += loss.item()
+                if i % 2000 == 1999:    # print every 2000 mini-batches
+                    print('[%d, %5d] loss: %.3f' %
+                        (epoch + 1, i + 1, running_loss / 2000))
+                    running_loss = 0.0
     cleanup()
 
 def main():
@@ -87,9 +98,10 @@ def main():
                         type=int, metavar='N')
     parser.add_argument('-g', '--gpus', default=1, type=int,
                         help='number of gpus per node')
+    parser.add_argument('--epochs', default=2, type=int, 
+                        metavar='N',
+                        help='number of epochs')
     parser.add_argument('-b','--batchsize', default=12, type=int) 
-    parser.add_argument('-o','--output', default='../results/resnet18_forward_stats', type=str,
-                        help='output file name or location') 
     args = parser.parse_args()
     if not 'MASTER_ADDR' in os.environ:
         os.environ['MASTER_ADDR'] = 'localhost'

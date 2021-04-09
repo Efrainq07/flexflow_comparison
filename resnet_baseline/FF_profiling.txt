@@ -1,0 +1,57 @@
+[0 - 7f68279fba80]   15.913111 {3}{Mapper}: Instance[61]: memory:1e00000000000001	proc:1d00000000000003	size:4000	task:Zero Init Task
+[0 - 7f68279fba80]   15.913151 {3}{Mapper}: Instance[62]: memory:1e00000000000001	proc:1d00000000000003	size:210739200	task:Float Load Input Task
+[0 - 7f68279fba80]   15.913177 {3}{Mapper}: Instance[63]: memory:1e00000000000001	proc:1d00000000000003	size:1400	task:Int32 Load Input Task
+[0 - 7f68279fba80]   15.913184 {3}{Mapper}: Instance[64]: memory:1e00000000000001	proc:1d00000000000003	size:1123942400	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913190 {3}{Mapper}: Instance[65]: memory:1e00000000000001	proc:1d00000000000003	size:37632	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913197 {3}{Mapper}: Instance[66]: memory:1e00000000000001	proc:1d00000000000003	size:210739200	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913203 {3}{Mapper}: Instance[67]: memory:1e00000000000001	proc:1d00000000000003	size:1123942400	task:bn_init_task
+[0 - 7f68279fba80]   15.913209 {3}{Mapper}: Instance[68]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:pool2d_init_task
+[0 - 7f68279fba80]   15.913216 {3}{Mapper}: Instance[69]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913222 {3}{Mapper}: Instance[70]: memory:1e00000000000001	proc:1d00000000000003	size:147456	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913228 {3}{Mapper}: Instance[71]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913235 {3}{Mapper}: Instance[72]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:bn_init_task
+[0 - 7f68279fba80]   15.913244 {3}{Mapper}: Instance[73]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913251 {3}{Mapper}: Instance[74]: memory:1e00000000000001	proc:1d00000000000003	size:147456	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913258 {3}{Mapper}: Instance[75]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913264 {3}{Mapper}: Instance[76]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:bn_init_task
+[0 - 7f68279fba80]   15.913270 {3}{Mapper}: Instance[77]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913277 {3}{Mapper}: Instance[78]: memory:1e00000000000001	proc:1d00000000000003	size:147456	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913283 {3}{Mapper}: Instance[79]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913294 {3}{Mapper}: Instance[80]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:bn_init_task
+[0 - 7f68279fba80]   15.913300 {3}{Mapper}: Instance[81]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913309 {3}{Mapper}: Instance[82]: memory:1e00000000000001	proc:1d00000000000003	size:147456	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913316 {3}{Mapper}: Instance[83]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913322 {3}{Mapper}: Instance[84]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:bn_init_task
+[0 - 7f68279fba80]   15.913334 {3}{Mapper}: Instance[85]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913340 {3}{Mapper}: Instance[86]: memory:1e00000000000001	proc:1d00000000000003	size:294912	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913347 {3}{Mapper}: Instance[87]: memory:1e00000000000001	proc:1d00000000000003	size:280985600	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913353 {3}{Mapper}: Instance[88]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:bn_init_task
+[0 - 7f68279fba80]   15.913365 {3}{Mapper}: Instance[89]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913371 {3}{Mapper}: Instance[90]: memory:1e00000000000001	proc:1d00000000000003	size:589824	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913378 {3}{Mapper}: Instance[91]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913384 {3}{Mapper}: Instance[92]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:bn_init_task
+[0 - 7f68279fba80]   15.913393 {3}{Mapper}: Instance[93]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913399 {3}{Mapper}: Instance[94]: memory:1e00000000000001	proc:1d00000000000003	size:32768	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913406 {3}{Mapper}: Instance[95]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:bn_init_task
+[0 - 7f68279fba80]   15.913412 {3}{Mapper}: Instance[96]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913420 {3}{Mapper}: Instance[97]: memory:1e00000000000001	proc:1d00000000000003	size:589824	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913426 {3}{Mapper}: Instance[98]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913433 {3}{Mapper}: Instance[99]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:bn_init_task
+[0 - 7f68279fba80]   15.913439 {3}{Mapper}: Instance[100]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913449 {3}{Mapper}: Instance[101]: memory:1e00000000000001	proc:1d00000000000003	size:589824	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913456 {3}{Mapper}: Instance[102]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913462 {3}{Mapper}: Instance[103]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:bn_init_task
+[0 - 7f68279fba80]   15.913469 {3}{Mapper}: Instance[104]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913477 {3}{Mapper}: Instance[105]: memory:1e00000000000001	proc:1d00000000000003	size:1179648	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913484 {3}{Mapper}: Instance[106]: memory:1e00000000000001	proc:1d00000000000003	size:140492800	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913491 {3}{Mapper}: Instance[107]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:bn_init_task
+[0 - 7f68279fba80]   15.913500 {3}{Mapper}: Instance[108]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913506 {3}{Mapper}: Instance[109]: memory:1e00000000000001	proc:1d00000000000003	size:2359296	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913519 {3}{Mapper}: Instance[110]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913526 {3}{Mapper}: Instance[111]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:bn_init_task
+[0 - 7f68279fba80]   15.913532 {3}{Mapper}: Instance[112]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913538 {3}{Mapper}: Instance[113]: memory:1e00000000000001	proc:1d00000000000003	size:131072	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913549 {3}{Mapper}: Instance[114]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:bn_init_task
+[0 - 7f68279fba80]   15.913555 {3}{Mapper}: Instance[115]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913578 {3}{Mapper}: Instance[116]: memory:1e00000000000001	proc:1d00000000000003	size:2359296	task:Conv2D Init Task
+[0 - 7f68279fba80]   15.913585 {3}{Mapper}: Instance[117]: memory:1e00000000000001	proc:1d00000000000003	size:70246400	task:Conv2D Init Task

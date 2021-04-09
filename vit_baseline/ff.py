@@ -17,7 +17,7 @@ def top_level_task():
   dims_input = [ffconfig.batch_size, 3, 229, 229]
   input = ffmodel.create_tensor(dims_input, DataType.DT_FLOAT)
 
-  torch_model = PyTorchModel("scalar.ff")
+  torch_model = PyTorchModel("vit_base_patch32_224_in21k.ff")
   output_tensors = torch_model.apply(ffmodel, [input])
   t = ffmodel.softmax(output_tensors[0])
 

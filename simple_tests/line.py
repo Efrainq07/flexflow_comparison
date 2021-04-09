@@ -14,10 +14,10 @@ def top_level_task():
   print("Python API batchSize(%d) workersPerNodes(%d) numNodes(%d)" %(ffconfig.batch_size, ffconfig.workers_per_node, ffconfig.num_nodes))
   ffmodel = FFModel(ffconfig)
   
-  dims_input = [ffconfig.batch_size, 3, 229, 229]
+  dims_input = [ffconfig.batch_size, 1]
   input = ffmodel.create_tensor(dims_input, DataType.DT_FLOAT)
 
-  torch_model = PyTorchModel("scalar.ff")
+  torch_model = PyTorchModel("customParam.ff")
   output_tensors = torch_model.apply(ffmodel, [input])
   t = ffmodel.softmax(output_tensors[0])
 
@@ -27,8 +27,9 @@ def top_level_task():
   label = ffmodel.label_tensor
   
   num_samples = 10000
-  
-  (x_train, y_train), (x_test, y_test) = cifar10.load_data(num_samples)
+  x_sample_train = np.random.rand(num_samples) 
+  x_sample_test = np.random.rand(num_samples) 
+  (x_train, y_train), (x_test, y_test) = (x_sample_train,x_sample_train), (x_sample_test,x_sample_test) 
 
   full_input_np = np.zeros((num_samples, 3, 229, 229), dtype=np.float32)
   
